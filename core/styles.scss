@@ -1,0 +1,20 @@
+#Loading{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:150px;
+  margin-left:-75px;
+  margin-top:-16px;
+}
+img{
+  max-width: 100%;
+}
+body{
+  overflow-x: hidden;
+  a{
+    color:inherit;
+    &:hover{
+      color: inherit;
+    }
+  }
+}
