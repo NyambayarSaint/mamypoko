@@ -26,8 +26,8 @@ class MyApp extends App {
         this.setState({ config, completelyLoaded: true, menu: res.data.menu.Menu, general: res.data.general});
 
         // GOOGLE TAG MANAGER
-        // const tagManagerArgs = { gtmId: "GTM-MCZZX6G" };
-        // TagManager.initialize(tagManagerArgs);
+        const tagManagerArgs = { gtmId: "GTM-5GWNX89" };
+        TagManager.initialize(tagManagerArgs);
     }
 
     render() {
