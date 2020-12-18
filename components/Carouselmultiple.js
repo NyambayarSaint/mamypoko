@@ -9,6 +9,7 @@ const CarouselMultiple = ({data}) => {
     const {config} = useContext(MenuContext);
     return (
         <Container arrows={data.Arrows} radius={data.BorderRadius} container={data.Container} width={data.Width} style={{background: data.BackgroundColor}}>
+            {data.Caption && <h5>{data.Caption}</h5>}
             <Carousel itemsToShow={config.width > 768 ? data.SlidesPerRow : 1}>
                 {data.Sliders && data.Sliders.map(el=>(
                     el.caption ? 
@@ -36,6 +37,12 @@ const Container = styled.div`
     ${({container})=> container && `
         padding:50px 10vw;
     `};
+    h5{
+        text-align:center;
+        font-weight:bold;
+        color:${({theme})=>theme.mainColor};
+        text-shadow:1px 1px 4px rgba(0,0,0,0.1);
+    }
     a{
         text-decoration:none;
     }
