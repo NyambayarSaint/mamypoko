@@ -17,8 +17,8 @@ class MyApp extends App {
         completelyLoaded: false,
         name: 'Mamy Poko',
         description: 'To be continued...',
-        serverUrl:'http://192.168.10.88:1347',
-        frontUrl: 'http://localhost'
+        serverUrl:'http://admin-mn.mamypoko.mn',
+        frontUrl: 'http://mamypoko.mn'
     };
     async componentDidMount() {
         const res = await checkLanguage(queryString, null);
