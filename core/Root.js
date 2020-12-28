@@ -1,9 +1,10 @@
-import Header from '@/core/Header'
+import Header from '@/core/Header';
 import Footer from '@/core/Footer';
 import {MenuContext} from '@/miscs/ContextMenuProvider';
 import { useContext } from "react";
 import styled from "styled-components";
 import PreSeo from "@/components/miscs/PreSeo";
+import OrderButton from '@/core/OrderButton';
 
 export default function Root(props) {
     const {menu} = useContext(MenuContext);
@@ -11,6 +12,7 @@ export default function Root(props) {
         <Body>
             <PreSeo seo={props.seo}/>
             <Header menu={menu || []}/>
+            <OrderButton/>
             {props.children}
             <Footer/>
         </Body>
