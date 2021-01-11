@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import {BsArrowRight} from 'react-icons/bs';
 import {FaWindowClose} from 'react-icons/fa'
 
-import Button from "@/shared/Button";
 import checkLanguage from "@/miscs/checkLanguage";
 import months from "@/miscs/months";
 import minimize from '@/miscs/minimize';
@@ -101,7 +100,7 @@ const BlogGrids = ({data}) => {
                                     <motion.div className="box" variants={elem}>
                                         <Link href={'/news/' + el.Slug}>
                                             <a>
-                                                <motion.div variants={elemImg} className="img" style={{backgroundImage: `url(${minimize(el.Thumb[0],'small')})`}}></motion.div>
+                                                <motion.div variants={elemImg} className="img" style={{backgroundImage: `url(${minimize(el.Thumb,'small')})`}}></motion.div>
                                             </a>
                                         </Link>
                                         <div className="text">
@@ -123,7 +122,7 @@ const BlogGrids = ({data}) => {
                                     <motion.div className="box" variants={elem}>
                                         <Link href={'/news/' + el.Slug}>
                                             <a>
-                                                <motion.div variants={elemImg} className="img" style={{backgroundImage: `url(${minimize(el.Thumb[0],'small')})`}}></motion.div>
+                                                <motion.div variants={elemImg} className="img" style={{backgroundImage: `url(${minimize(el.Thumb,'small')})`}}></motion.div>
                                             </a>
                                         </Link>
                                         <div className="text">
@@ -141,7 +140,7 @@ const BlogGrids = ({data}) => {
                     : null}
                     </motion.div>
                     <div style={{textAlign:'center'}}>
-                        {!searchedData.length ? load ? <Button className="loadmore" onClick={loadmoreHandler}>{data.LoadMore}</Button> : <Button className="loadmore loading"><img src="/img/spinner.gif"/></Button> : null}
+                        {!searchedData.length ? load ? <button className="loadmore" onClick={loadmoreHandler}>{data.LoadMore}</button> : <button className="loadmore loading"><img src="/img/spinner.gif"/></button> : null}
                     </div>
                 </div>
             </div>

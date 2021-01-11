@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import minimize from '@/miscs/minimize';
-import LinedText from '@/shared/LinedText';
 import formatDate from '@/miscs/formatDate';
 import {Parser} from 'html-to-react';
 import months from "@/miscs/months";
@@ -14,10 +13,10 @@ const BlogDetail = ({data, other}) => {
     const ParsedContent = ContentParser.parse(data.Content);
     return (
         <Container className="container">
-            <SocialFixed thumb={minimize(data.Thumb[0], 'medium')} title={data.Title} url={data.Slug} description={decrease(data.Content, 160)}/>
+            <SocialFixed thumb={minimize(data.Thumb, 'medium')} title={data.Title} url={data.Slug} description={decrease(data.Content, 160)}/>
             <div className="row">
                 <div className="col-md-9 left">
-                    <img className="mainimg" src={minimize(data.Thumb[0], 'large')} />
+                    <img className="mainimg" src={minimize(data.Thumb, 'large')} />
                     <h1 className="maintitle">{data.Title}</h1>
                     <div className="datecon">
                         <span>{formatDate(data.createdAt)} / By {data.created_by.firstname+' '+data.created_by.lastname}</span>
@@ -33,7 +32,7 @@ const BlogDetail = ({data, other}) => {
                             <div className="box" key={'box'+i}>
                                 <Link href={'/news/'+el.Slug}>
                                     <a>
-                                        <div className="img" style={{backgroundImage: `url(${minimize(el.Thumb[0], 'small')})`}}>
+                                        <div className="img" style={{backgroundImage: `url(${minimize(el.Thumb, 'small')})`}}>
                                             <div className="date">
                                                 <p>{date.getDate()}</p>
                                                 <small>{months[date.getMonth()]}</small>

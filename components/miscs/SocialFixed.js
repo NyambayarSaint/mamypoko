@@ -6,7 +6,7 @@ import {FacebookShareButton, TwitterShareButton, LinkedinShareButton} from 'reac
 import Head from 'next/head';
 
 const SocialFixed = ({title, description, thumb, url}) => {
-    let path = window.location.origin + '/news/' + url
+    let path = `http://mamypoko.mn` + '/news/' + url
     return (
         <>
         <Head>
@@ -52,7 +52,7 @@ const Wrapper = styled.div `
     .icons{
         text-align:center;
         line-height:42px;
-        background:black;
+        background:${({theme})=>theme.mainColor};
         color:white;
         height:42px;
         width:42px;
