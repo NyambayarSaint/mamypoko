@@ -5,6 +5,8 @@ import { useContext } from "react";
 import styled from "styled-components";
 import PreSeo from "@/components/miscs/PreSeo";
 import OrderButton from '@/core/OrderButton';
+import "@/core/styles.scss";
+import "@/core/suneditor.scss";
 
 export default function Root(props) {
     const {menu} = useContext(MenuContext);

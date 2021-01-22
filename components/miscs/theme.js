@@ -2,8 +2,8 @@ export const fontSize = '14px';
 export const fontSize2 = '16px';
 export const fontSizeMedium = '20px';
 
-export const fontFamily = `'Raleway', sans-serif`;
-export const fontFamily2 = `'rotonda', sans-serif`;
+export const fontFamily = `'MogulRotonda', sans-serif`;
+export const fontFamily2 = `'MogulRotonda', sans-serif`;
 export const fontWeightNormal = 400;
 
 export const headerHeight = 50;

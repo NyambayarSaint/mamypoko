@@ -6,7 +6,9 @@ const ContentParser = new Parser()
 const Content = ({data}) => {
     return (
         <Container className={`${data.Container && 'container'}`}>
-            {ContentParser.parse(data.Content)}
+            <div className="content sun-editor-editable sun-editor">
+                {ContentParser.parse(data.Content)}
+            </div>
         </Container>
     );
 };
