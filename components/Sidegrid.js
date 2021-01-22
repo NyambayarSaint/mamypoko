@@ -12,11 +12,11 @@ const Sidegrid = ({data}) => {
                         <img src={minimize(el.Image, 'medium')} className="img"/>
                         <div className="info">
                             <div className="con">
-                                <GiFoldedPaper/>
+                                <img src="/img/p1.png"/>
                                 <p>{el.Piece}</p>
                             </div>
                             <div className="con">
-                                <GiFoldedPaper/>
+                                <img src="/img/p2.png"/>
                                 <p>{el.Pack}</p>
                             </div>
                         </div>
@@ -56,7 +56,7 @@ const Container = styled.div `
                     font-size:30px;
                     width:30px;
                     height:30px;
-                    opacity:0.7;
+                    opacity:1;
                 }
                 p{
                     margin:0px;
