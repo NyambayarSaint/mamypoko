@@ -16,8 +16,6 @@ const Header = ({ menu }) => {
     const [headerBlueHeight, setHeaderBlueHeight] = useState(70);
     const Router = useRouter();
 
-    console.log(menu, 'menu');
-
     useEffect(() => {
         setHeaderBlueHeight(document.querySelector('.blue').offsetHeight)
     }, []);

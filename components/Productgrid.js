@@ -7,7 +7,6 @@ import minimize from './miscs/minimize';
 
 const Productgrid = ({data}) => {
     const {config} = useContext(MenuContext);
-    console.log(data)
     
     return (
         <Container className="container">

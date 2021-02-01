@@ -4,7 +4,6 @@ import minimize from './miscs/minimize';
 import {GiFoldedPaper} from 'react-icons/gi'
 
 const Sidegrid = ({data}) => {
-    console.log(data)
     return (
         <Container>
                 {data.Side && data.Side.length && data.Side.map(el=>(

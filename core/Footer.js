@@ -10,7 +10,6 @@ import minimize from '@/components/miscs/minimize';
 const Footer = () => {
     const {general} = useContext(MenuContext);
     const {completelyLoaded} = useContext(MenuContext);
-    console.log(general,'general');
     return (
         <Container>
             {completelyLoaded && <div className="top">

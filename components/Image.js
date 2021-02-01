@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import minimize from './miscs/minimize';
 
 const Image = ({data}) => {
-    console.log(data.Image.caption,'hehe')
     return (
         <Container
         center={data.Position === "center"}
