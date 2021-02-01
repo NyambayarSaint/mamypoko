@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import minimize from './miscs/minimize';
 
 const Image = ({data}) => {
+    const R = useRouter();
     return (
         <Container
         center={data.Position === "center"}
@@ -10,10 +12,7 @@ const Image = ({data}) => {
         right={data.Position === "right"}
         ghost={data.Ghost}
         >
-            {data.Image.caption ?
-                <a href={data.Image.caption} target="__blank"><img style={{ width: data.Width }} src={minimize(data.Image)} /></a>:
-                <img style={{ width: data.Width }} src={minimize(data.Image)} />
-            }
+            <img onClick={()=>data.Image.caption && R.push(data.Image.caption)} style={{ width: data.Width }} src={minimize(data.Image)} />
         </Container>
     );
 };
@@ -40,4 +39,9 @@ const Container = styled.div `
         position:absolute;
         z-index:2;
     `};
+    img{
+        &:hover{
+            cursor:pointer;
+        }
+    }
 `
