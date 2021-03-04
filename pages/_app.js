@@ -16,7 +16,7 @@ class MyApp extends App {
         general: {},
         completelyLoaded: false,
         name: 'Mamy Poko',
-        description: 'To be continued...',
+        description: 'MamyPoko брендийн Монгол дахь албан ёсны веб хуудас',
         serverUrl:'http://admin-mn.mamypoko.mn',
         frontUrl: 'http://mamypoko.mn'
     };
