@@ -56,6 +56,7 @@ const Header = ({ menu }) => {
                     ))}
                 </div>
             </div>
+            <div className="mobile-nav-padding" style={{height:61}}></div>
             <div className="mobile-nav">
                 <img src="/img/logo-mobile.png" className="logo" />
                 <HamburgerMenu isOpen={mobileMenu} menuClicked={() => setMobileMenu(!mobileMenu)} color="white" strokeWidth={4} height={18} />
@@ -66,10 +67,10 @@ const Header = ({ menu }) => {
                         <BiSearchAlt2 />
                         <input type="text" />
                     </div>
-                    <div className="login-con">
+                    {/* <div className="login-con">
                         <FaUser />
                         <div>Нэвтрэх</div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="bottom">
                     {menu.length && menu.map(el => (
@@ -245,11 +246,15 @@ const Container = styled.div`
         }
         padding-top:0px;
         .mobile-nav{
+            width:100%;
             display:flex;
             justify-content: space-between;
             align-items:center;
             background-image: linear-gradient(to bottom right, ${({ theme }) => theme.mainColor2}, ${({ theme }) => theme.mainColor});
             padding:8px 15px;
+            position:fixed;
+            top:0;
+            z-index:9999;
             .logo{
                 height:45px;
             }
