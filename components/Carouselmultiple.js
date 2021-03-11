@@ -65,8 +65,8 @@ const Container = styled.div`
         background-position:center;
     }
     @media only screen and (max-width: 768px){
-        padding-left:15px;
-        padding-right:15px;
+        padding:0px 15px;
+        padding-bottom:15px;
         .box{
             width:100%;
             margin:0px;

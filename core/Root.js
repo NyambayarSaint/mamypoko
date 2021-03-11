@@ -57,6 +57,9 @@ const Body = styled.div `
             background:white;
         }
     }
+    .rec-dot{
+        box-sizing:border-box !important;
+    }
     .rec-arrow{
         background-color: rgba(255,255,255,0.6);
         outline:none;

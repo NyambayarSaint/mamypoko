@@ -38,8 +38,8 @@ const Container = styled.div `
     @media only screen and (max-width: 768px){
         padding-left:8px;
         padding-right:8px;
-        padding-top:5vh;
-        padding-bottom:5vh;
+        padding-top:15px;
+        padding-bottom:15px;
         h1{
             span{
                 font-size: ${props=>props.theme.fontSizeMedium} !important;

@@ -17,10 +17,12 @@ const Container = styled.div `
     height:12px;
     width:100%;
     opacity:0;
-    ${({mtop})=>mtop && `margin-top: ${mtop} !important`};
-    ${({mbottom})=>mbottom && `margin-bottom: ${mbottom} !important`};
     ${({visible})=> visible && `
         background-image: url('/img/dots.png');
         opacity:1;
     `};
+    @media only screen and (max-width: 768px){
+        ${({mtop})=>mtop && `margin-top: ${mtop} !important`};
+        ${({mbottom})=>mbottom && `margin-bottom: ${mbottom} !important`};
+    }
 `
