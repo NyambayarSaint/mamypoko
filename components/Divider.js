@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Divider = ({data}) => {
     return (
-        <Container visible={data.Visible} style={{marginTop: data.Top, marginBottom: data.Bottom}}></Container>
+        <Container visible={data.Visible} mtop={data.MobileTop} mbottom={data.MobileBottom} style={{marginTop: data.Top, marginBottom: data.Bottom}}></Container>
     );
 };
 
@@ -17,6 +17,8 @@ const Container = styled.div `
     height:12px;
     width:100%;
     opacity:0;
+    ${({mtop})=>mtop && `margin-top: ${mtop} !important`};
+    ${({mbottom})=>mbottom && `margin-bottom: ${mbottom} !important`};
     ${({visible})=> visible && `
         background-image: url('/img/dots.png');
         opacity:1;
