@@ -54,6 +54,7 @@ const Container = styled.div`
     @media only screen and (max-width: 768px){
         img{
             ${({MobileWidth})=>MobileWidth && `width: ${MobileWidth} !important`};
+            object-fit: unset !important;
         }
         .desktop{
             ${({MobileImage})=>MobileImage && `display:none;`};
