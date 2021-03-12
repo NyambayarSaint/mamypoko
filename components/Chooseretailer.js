@@ -1,29 +1,54 @@
 import React from 'react';
 import styled from 'styled-components';
 import minimize from './miscs/minimize';
-import Carousel from 'react-elastic-carousel';
-import {AiOutlineCheck} from 'react-icons/ai';
-import {BiLinkExternal} from 'react-icons/bi';
+import Carousel, { consts } from 'react-elastic-carousel';
+import { AiOutlineCheck } from 'react-icons/ai';
+import { BiLinkExternal } from 'react-icons/bi';
 import { MenuContext } from '@/miscs/ContextMenuProvider'
 import { useContext } from "react";
+import { useRouter } from 'next/router';
+import {BiChevronLeft, BiChevronRight} from 'react-icons/bi';
 
 const ChooseRetailer = ({ data }) => {
     const { config } = useContext(MenuContext);
+    const R = useRouter();
+
+    const myArrow = ({ type, onClick, isEdge }) => {
+        const pointer = type === consts.PREV ? <BiChevronLeft /> : <BiChevronRight />
+        return (
+            <button className="button-arrow" onClick={onClick} disabled={isEdge}>
+                {pointer}
+            </button>
+        )
+    }
+
     return (
         <Container SlidesPerRow={data.SlidesPerRow}>
             <h4>{data.Title}</h4>
             <div className="box">
-                <Carousel itemsToShow={config.width > 768 ? data.SlidesPerRow : 1} showArrows={false}>
+                <Carousel itemsToShow={config.width > 768 ? data.SlidesPerRow : 1} renderArrow={myArrow}
+                    renderPagination={({ pages, activePage, onClick }) => {
+                        return (
+                            <div className="pagination-custon-con">
+                                {pages.map(page => {
+                                    const isActivePage = activePage === page
+                                    return (
+                                        <div className={`paginations-custom ${isActivePage}`} onClick={() => onClick(page)} key={page} />
+                                    )
+                                })}
+                            </div>
+                        )
+                    }}>
                     {data.Retailers.map(el => (
-                        <div className="piece">
+                        <div className="piece" onClick={() => el.Link && R.push(el.Link)}>
                             {el.Link && <a target="__blank" href={el.Link}>
                                 <div className="popup">
-                                    <div className="link"><BiLinkExternal/></div>
+                                    <div className="link"><BiLinkExternal /></div>
                                     <div className="caption">Харилцагчруу чиглүүлэх</div>
 
-                                    {el.Ebarimt && <div className="list"><AiOutlineCheck/> И-баримттай</div>}
-                                    {el.FreeDelivery && <div className="list"><AiOutlineCheck/> Хүргэлт үнэгүй</div>}
-                                    {el.Gift && <div className="list"><AiOutlineCheck/> Бэлэгтэй</div>}
+                                    {el.Ebarimt && <div className="list"><AiOutlineCheck /> И-баримттай</div>}
+                                    {el.FreeDelivery && <div className="list"><AiOutlineCheck /> Хүргэлт үнэгүй</div>}
+                                    {el.Gift && <div className="list"><AiOutlineCheck /> Бэлэгтэй</div>}
                                 </div>
                             </a>}
                             {el.Image && <img src={minimize(el.Image, 'medium')} />}
@@ -50,11 +75,37 @@ const Container = styled.div`
         color:${({ theme }) => theme.mainColor3};
         margin-bottom:20px;
     }
+    .button-arrow{
+        background:none;
+        border:1px solid rgba(0,0,0,0.1);
+        font-size:20px;
+        align-self:center;
+        border-radius:100%;
+        outline:none;
+    }
     .box{
         border:1px solid ${({ theme }) => theme.mainColor};
         padding:30px 0px 15px;
         display:flex;
         border-radius:30px;
+        .pagination-custon-con{
+            display:flex;
+            margin-top:15px;
+            .paginations-custom{
+                height:14px;
+                width:14px;
+                background:white;
+                border-radius:100%;
+                margin-right:14px;
+                border:2px solid rgba(0,0,0,0.3);
+                &.true{
+                    border:2px solid ${({ theme }) => theme.mainColor};
+                }
+                &:last-child{
+                    margin-right:0px;
+                }
+            }
+        }
         .piece{
             text-align:center;
             position:relative;
@@ -77,7 +128,7 @@ const Container = styled.div`
                 display:flex;
                 justify-content:center;
                 flex-direction:column;
-                background:${({theme})=>theme.mainColor};
+                background:${({ theme }) => theme.mainColor};
                 color:white;
                 transition:0.5s ease;
                 .list{
@@ -125,7 +176,11 @@ const Container = styled.div`
         padding-left:15px;
         padding-right:15px;
         h4{
-            font-size: ${({theme})=>theme.fontSize2};
+            font-size: ${({ theme }) => theme.fontSize2};
+        }
+        .box{
+            padding-left:15px;
+            padding-right:15px;
         }
         .piece{
             .popup{

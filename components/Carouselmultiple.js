@@ -1,16 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import Carousel from 'react-elastic-carousel';
+import Carousel, {consts} from 'react-elastic-carousel';
 import minimize from './miscs/minimize';
 import { MenuContext } from '@/miscs/ContextMenuProvider'
 import { useContext } from "react";
+import {BiChevronLeft, BiChevronRight} from 'react-icons/bi';
 
 const CarouselMultiple = ({ data }) => {
     const { config } = useContext(MenuContext);
+
+    const myArrow = ({ type, onClick, isEdge }) => {
+        const pointer = type === consts.PREV ? <BiChevronLeft/> : <BiChevronRight/>
+        return (
+            <button className="button-arrow" onClick={onClick} disabled={isEdge}>
+                {pointer}
+            </button>
+        )
+    }
+
     return (
         <Container arrows={data.Arrows} radius={data.BorderRadius} container={data.Container} width={data.Width} style={{ background: data.BackgroundColor }}>
             {data.Caption && <h5>{data.Caption}</h5>}
-            <Carousel itemsToShow={config.width > 768 ? data.SlidesPerRow : 1} renderPagination={({ pages, activePage, onClick }) => {
+            <Carousel itemsToShow={config.width > 768 ? data.SlidesPerRow : 1} renderArrow={myArrow} renderPagination={({ pages, activePage, onClick }) => {
                 return (
                     <div className="pagination-custon-con">
                         {pages.map(page => {
@@ -48,6 +59,14 @@ const Container = styled.div`
     ${({ container }) => container && `
         padding:50px 10vw;
     `};
+    .button-arrow{
+        background:none;
+        border:1px solid rgba(0,0,0,0.1);
+        font-size:20px;
+        align-self:center;
+        border-radius:100%;
+        outline:none;
+    }
     .pagination-custon-con{
         display:flex;
         margin-top:15px;
@@ -59,7 +78,7 @@ const Container = styled.div`
             margin-right:14px;
             border:2px solid rgba(0,0,0,0.3);
             &.true{
-                border:2px solid ${({theme})=>theme.mainColor};
+                border:2px solid ${({ theme }) => theme.mainColor};
             }
             &:last-child{
                 margin-right:0px;
