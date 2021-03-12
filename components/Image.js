@@ -54,7 +54,10 @@ const Container = styled.div`
     @media only screen and (max-width: 768px){
         img{
             ${({MobileWidth})=>MobileWidth && `width: ${MobileWidth} !important`};
-            object-fit: unset !important;
+            min-height:auto !important;
+            max-height:auto !important;
+            height:auto !important;
+            align-self:flex-start;
         }
         .desktop{
             ${({MobileImage})=>MobileImage && `display:none;`};
