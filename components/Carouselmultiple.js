@@ -57,11 +57,9 @@ const Container = styled.div`
             background:white;
             border-radius:100%;
             margin-right:14px;
+            border:2px solid rgba(0,0,0,0.3);
             &.true{
                 border:2px solid ${({theme})=>theme.mainColor};
-                box-sizing:content-box;
-                margin-top:-1px;
-                box-shadow:0px 0px 5px ${({theme})=>theme.mainColor};
             }
             &:last-child{
                 margin-right:0px;

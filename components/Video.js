@@ -20,4 +20,7 @@ export default Video;
 const Container = styled.div `
     margin-top:15px;
     margin-bottom:15px;
+    @media only screen and (max-width: 768px){
+        display:none;
+    }
 `
