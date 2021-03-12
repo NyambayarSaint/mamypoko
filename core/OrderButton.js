@@ -42,8 +42,8 @@ const Container = styled.div `
         left:0px;
         width:100px;
         bottom:5px;
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
+        ${'' /* -webkit-transform: scaleX(-1); */}
+        ${'' /* transform: scaleX(-1); */}
     }
     .jello-horizontal {
         -webkit-animation: jello-horizontal 0.9s both;
