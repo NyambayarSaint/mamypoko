@@ -77,11 +77,11 @@ const Header = ({ menu }) => {
                         el.Path ?
                             <Link key={Math.random()} href={el.Path}>
                                 <a>
-                                    <li className={`${checkActive(el.Path)}`}><span>{el.Title}</span><div className="arrow"></div></li>
+                                    <li onClick={()=>setMobileMenu(false)} className={`${checkActive(el.Path)}`}><span>{el.Title}</span><div className="arrow"></div></li>
                                 </a>
                             </Link>
                             :
-                            <li key={Math.random()}><span>{el.Title}</span></li>
+                            <li onClick={()=>setMobileMenu(false)} key={Math.random()}><span>{el.Title}</span></li>
                     ))}
                 </div>
             </div>
